@@ -4,6 +4,8 @@
         <input 
         class="h-10 w-96 rounded-lg border-[1px] border-[#D9D9D9] pl-2 outline-none" 
         :type="type"
+        @input="$emit('update:modelValue', $event.target.value)"
+        :value="modelValue"
         :placeholder="placeholder">
     </div>
 </template>
@@ -14,7 +16,9 @@ export default {
     props: {
         type: String,
         placeholder: String,
-        label: String
-    }
+        label: String,
+        modelValue: String,
+    },
+    emits: ['update:modelValue'],
 }
 </script>
