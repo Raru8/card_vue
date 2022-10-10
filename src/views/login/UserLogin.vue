@@ -16,7 +16,8 @@
 
                 <span class="line-div">Or</span>
 
-                <button class="text-[#9B9B9B] text-base border-[1px] rounded-lg h-10 w-96 mt-7">
+                <button
+                    class="text-[#9B9B9B] text-base border-[1px] rounded-lg h-10 w-96 mt-7 hover:bg-[#00DFC2] hover:text-white">
                     <i class="fa-brands fa-google"></i>
                     Sing in with Google
                 </button>
@@ -36,7 +37,7 @@ export default {
     components: {
         InputDefault,
         ButtonDefault
-    }
+    },
 }
 </script>
 
