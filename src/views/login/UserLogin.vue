@@ -32,12 +32,28 @@
 import InputDefault from '@/components/forms/InputDefault';
 import ButtonDefault from '@/components/forms/ButtonDefault';
 
+import axios from 'axios';
+
 export default {
     name: 'UserLogin',
     components: {
         InputDefault,
         ButtonDefault
     },
+    methods: {
+        loginUser() {
+            axios.get('http://localhost:3000/users/?first_name=Victor&password=raruyaza')
+                .then((r) => {
+                    console.log(r)
+                }).catch((e) => {
+                    console.log(e)
+                })
+        },
+    },
+
+    created() {
+        this.loginUser()
+    }
 }
 </script>
 
