@@ -9,10 +9,10 @@
             <h1 class="text-[50px] font-semibold absolute top-20 left-48">Login</h1>
 
             <form class="h-96 flex flex-col justify-around">
-                <input-default :placeholder="'Email'" :label="'Login:'" :type="'text'" />
-                <input-default :placeholder="'Password'" :label="'Password:'" :type="'password'" />
+                <input-default :placeholder="'Email'" :label="'Login:'" :type="'text'" v-model="user" />
+                <input-default :placeholder="'Password'" :label="'Password:'" :type="'password'" v-model="password" />
 
-                <button-default :size="'h-10 w-96'" :title="'Login'" />
+                <button-default :size="'h-10 w-96'" :title="'Login'" @click.prevent="loginUser()" />
 
                 <span class="line-div">Or</span>
 
@@ -40,20 +40,23 @@ export default {
         InputDefault,
         ButtonDefault
     },
+    data() {
+        return {
+            user: '',
+            password: ''
+        }
+    },
     methods: {
         loginUser() {
-            axios.get('http://localhost:3000/users/?first_name=Victor&password=raruyaza')
+            axios.get(`http://localhost:3000/users/?first_name=${this.user}&password=${this.password}`)
                 .then((r) => {
                     console.log(r)
+                    alert(r.data)
                 }).catch((e) => {
                     console.log(e)
                 })
         },
     },
-
-    created() {
-        this.loginUser()
-    }
 }
 </script>
 
