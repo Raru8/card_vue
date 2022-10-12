@@ -2,7 +2,7 @@
     <div class="h-full w-full flex items-center justify-center">
         <div
             class="h-full w-1/2 flex flex-col items-center justify-center bg-[#00DFC2] text-[40px] text-center text-white font-light">
-            <img src="../../assets/images/bg-login.png">
+            <img src="../assets/images/bg-login.png">
             <p class="mt-2">Star for free and get <br> attractive offers</p>
         </div>
         <div class="h-full w-1/2 flex flex-col items-center justify-center relative">
@@ -31,7 +31,6 @@
 <script>
 import InputDefault from '@/components/forms/InputDefault';
 import ButtonDefault from '@/components/forms/ButtonDefault';
-
 import { loginStore } from '@/store/login'
 
 export default {
@@ -51,10 +50,7 @@ export default {
         return { login }
     },
     methods: {
-        teste() {
-            this.login.loginUser(this.user, this.password)
-            console.log('Sim')
-        }
+
     },
 }
 </script>
