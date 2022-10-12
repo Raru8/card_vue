@@ -12,7 +12,7 @@
                 <input-default :placeholder="'Email'" :label="'Login:'" :type="'text'" v-model="user" />
                 <input-default :placeholder="'Password'" :label="'Password:'" :type="'password'" v-model="password" />
 
-                <button-default :size="'h-10 w-96'" :title="'Login'" @click.prevent="loginUser()" />
+                <button-default :size="'h-10 w-96'" :title="'Login'" @click.prevent="teste()" />
 
                 <span class="line-div">Or</span>
 
@@ -32,7 +32,7 @@
 import InputDefault from '@/components/forms/InputDefault';
 import ButtonDefault from '@/components/forms/ButtonDefault';
 
-import axios from 'axios';
+import { loginStore } from '@/store/login'
 
 export default {
     name: 'UserLogin',
@@ -46,16 +46,15 @@ export default {
             password: ''
         }
     },
+    setup() {
+        const login = loginStore()
+        return { login }
+    },
     methods: {
-        loginUser() {
-            axios.get(`http://localhost:3000/users/?first_name=${this.user}&password=${this.password}`)
-                .then((r) => {
-                    console.log(r)
-                    alert(r.data)
-                }).catch((e) => {
-                    console.log(e)
-                })
-        },
+        teste() {
+            this.login.loginUser(this.user, this.password)
+            console.log('Sim')
+        }
     },
 }
 </script>
