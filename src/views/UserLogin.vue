@@ -12,7 +12,7 @@
                 <input-default :placeholder="'Email'" :label="'Login:'" :type="'text'" v-model="user" />
                 <input-default :placeholder="'Password'" :label="'Password:'" :type="'password'" v-model="password" />
 
-                <button-default :size="'h-10 w-96'" :title="'Login'" @click.prevent="teste()" />
+                <button-default :size="'h-10 w-96'" :title="'Login'" @click.prevent="loginUser()" />
 
                 <span class="line-div">Or</span>
 
@@ -31,7 +31,7 @@
 <script>
 import InputDefault from '@/components/forms/InputDefault';
 import ButtonDefault from '@/components/forms/ButtonDefault';
-import { loginStore } from '@/store/login'
+import { stores } from '@/store'
 
 export default {
     name: 'UserLogin',
@@ -46,11 +46,18 @@ export default {
         }
     },
     setup() {
-        const login = loginStore()
-        return { login }
+        const store = stores()
+        return { store }
     },
     methods: {
-
+        loginUser() {
+            this.store.loginUser(this.user, this.password)
+            .then((r)=>{
+                if(r.data.length > 0)
+                this.$router.push({name: 'home.id', params:{id: r.data[0].id}})
+                console.log()
+            })
+        }
     },
 }
 </script>
