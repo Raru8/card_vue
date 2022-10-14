@@ -1,27 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router"
 import UserLogin from "@/views/UserLogin"
-import Home from "@/views/UserHome"
+import UserHome from "@/views/UserHome"
 
 const routes = [
-    {
-        path: '/',
-        redirect: '/login'
-    },
-    {
-        path: '/login',
-        component: UserLogin,
-        // meta: { requireAuth: false }
-    },
-    {
-        path: '/home',
-        component: Home,
-        meta: { requireAuth: true }
-    }
+    {path:'/',component: UserLogin},
+    {path: '/login', name: 'login', component: UserLogin},
+    {path: '/home/:id', name: 'home.id', component: UserHome, props: true}
 ]
 
 const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
 
 export default router
