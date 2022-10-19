@@ -1,13 +1,19 @@
 <template>
+    <nav-menu :photo='this.data.photo'/>
     <h1>Home</h1>
-    {{this.data}}
+    <!-- {{this.data}} -->
 </template>
 
 <script>
 import { stores } from '@/store'
+import NavMenu from '@/components/nav/NavMenu'
 
 export default {
     name: "UserHome",
+    components:{
+        NavMenu
+    },
+
     props: {
         id: String
     },
