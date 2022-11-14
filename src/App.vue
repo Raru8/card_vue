@@ -3,7 +3,7 @@
   <!-- <user-login></user-login> -->
 </template>
 <script>
-//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
+
 export default {
   name: 'App',
 }
