@@ -1,11 +1,15 @@
 <template>
-  <router-view />
-  <!-- <user-login></user-login> -->
+  <UserHome />
 </template>
+
 <script>
+import UserHome from '@/views/UserHome'
 
 export default {
   name: 'App',
+  components: {
+    UserHome
+  }
 }
 </script>
 
