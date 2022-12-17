@@ -5,16 +5,42 @@
             <i class="fa-solid fa-wifi rotate-90"></i>
         </div>
 
-        <div class="ml-5 mb-4 text-[20px]">
-            <p class="font-extralight mb-4">5533 2255 5250 5487</p>
-            <p>Victor Gabriel G Santos</p>
+        <div class="ml-5 mb-4 text-[20px] text-white">
+            <div class="flex w-28 justify-between text-sm">
+                <p>{{ data }}</p>
+                <p>{{ cvv }}</p>
+            </div>
+            <p class="font-extralight mb-4">{{ inden }}</p>
+            <p>{{ name }}</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CreditCard'
+    name: 'CreditCard',
+
+    props: {
+        inden: {
+            type: String,
+            required: false
+        },
+
+        name: {
+            type: String,
+            required: false
+        },
+
+        data: {
+            type: String,
+            required: false
+        },
+
+        cvv: {
+            type: String,
+            required: false
+        }
+    }
 }
 </script>
 
